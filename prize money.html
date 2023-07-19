@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    var source = "audio/start.mp3"
+ var audio = document.createElement("audio");
+ //
+ audio.autoplay = true;
+ //
+ audio.load()
+ audio.addEventListener("load", function() { 
+     audio.play(); 
+ }, true);
+ audio.src = source;
+</script>
+
+
+<style>
+    
+    .main{
+        background-color: lightblue;
+        
+    }
+    .heading1{
+        text-align: center;
+    }
+    h2{
+        
+        color: purple;
+        margin: 20px;
+    }
+    .abc{
+        position: relative;
+        width: 35%;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        margin-left: 60%;
+
+    }
+    .abc > div{
+        margin: 10px;
+        width: 20%;
+        background-color: green;
+        text-align: center;
+        
+    }
+    
+    
+    .box{
+        width: 24%;
+        margin: 5px;
+        padding: 12px;
+        box-sizing: border-box;
+        border: 2px solid black;
+        text-align: center;
+        
+    }
+    
+
+    .button {
+  background-color:black; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+    }
+
+    .points {
+    width: 100%;
+    /* float: left; */
+    display: flex;
+    margin: 6px;
+}
+
+.prizes {
+    width: 60%;
+    float: left;
+}
+div#prizeImage1 {
+    width: 45%;
+    height: 300px;
+    float: left;
+    margin: 4px;
+}
+div#prizeGif1 {
+    width: 45%;
+    height: 300px;
+    float: left;
+    margin: 4px;
+}
+#gp{
+    font-size: 20px;
+    margin-left: 4px;
+}
+#gpi{
+    font-size: 20px;
+    margin: 4px;
+}
+
+</style>
+<body onload="startMusic()">
+    
+    <div class="main">
+        <div class="heading1">
+
+        
+        <h1>Prize Money game</h1>
+        </div>
+      
+  
+      
+        <div class="prizes">
+            <div id="prizeImage1">
+            <img id="prizeImage"  width="100%" height="300px" src="https://static.vecteezy.com/system/resources/previews/003/475/731/original/play-and-win-big-prizes-contest-online-games-web-banner-free-vector.jpg" alt="">
+            </div>
+            <div id="prizeGif1">
+            <img id="prizeGif" src="https://media.tenor.com/ksZBWABiiZIAAAAM/lets-play-lets-do-this.gif" width="100%" height="300px" >
+            </div>
+            <div class="points">
+                <h2>Total Point: <span  id="tp">120</span></h2>
+                <h2>Total Turn: <span  id="tt" >0</span></h2>
+                <h2 >Point: <span id="yp"></span></h2>
+                <b><p id="gp"></p></b>
+                <b><p id="gpi"></p></b>
+            </div>
+        </div>
+
+        <div class="abc">
+     
+            <div class="box">
+                <p>1</p>
+            </div>
+            <div class="box">
+                <p>2</p>
+            </div>
+            <div class="box">
+                <p>3</p>
+            </div>
+            <div class="box">
+                <p>4</p>
+            </div>
+            <div class="box">
+                <p>5</p>
+            </div>
+            <div class="box">
+                <p>6</p>
+            </div>
+            <div class="box">
+                <p>7</p>
+            </div>
+            <div class="box">
+                <p>8</p>
+            </div>
+            <div class="box">
+                <p>9</p>
+            </div>
+            <div class="box">
+                <p>10</p>
+            </div>
+            <div class="box">
+                <p>11</p>
+            </div>
+            <div class="box">
+                <p>12</p>
+            </div>
+            <div class="box">
+                <p>13</p>
+            </div>
+            <div class="box">
+                <p>14</p>
+            </div>
+            <div class="box">
+                <p>15</p>
+            </div>
+            <div class="box">
+                <p>16</p>
+            </div>
+            <button class="button"  onclick="prizeMoney()">Play</button>
+        <button class="button" onclick="reloadGame()">Reset</button>
+            </div>
+      
+        
+
+
+
+            </div>
+        
+</body>
+<script >
+
+
+    // function startMusic(){
+
+    
+    // let start = new Audio("audio/start.mp3")
+    // start.play()
+    // }
+    function reloadGame(){
+        window.location.reload()
+    }
+
+    let prizeGif = ["https://media.tenor.com/t8bjAzYaA7sAAAAC/friends-phoebe.gif","https://i.gifer.com/4KPr.gif","https://media.tenor.com/X-V0T7snetQAAAAC/students-student.gif","https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTN5dTV4bTI2ZjBuNTh0bWdpYTZwYnpjbXFvN2N0MHRsb3phMXI3aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11tTNkNy1SdXGg/giphy.gif", "https://media.tenor.com/N0-A-QIkUOcAAAAM/celebration-dancing.gif","https://media.tenor.com/HH8UIhZ9QmAAAAAM/frustrated-pulling-hair.gif","https://thumbs.gfycat.com/BeneficialClearcutBoar-size_restricted.gif", "https://www.icegif.com/wp-content/uploads/icegif-2471.gif","https://www.icegif.com/wp-content/uploads/2023/03/icegif-1802.gif","https://images.gr-assets.com/hostedimages/1597433898ra/29967993.gif","https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzdqOTJrcTdzN2F3cTZwdGVveXp6bGt2ODA3MGJueTl3ZHI2a2J5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rccdZTYoEX48HO3UMa/giphy.gif" ,"https://media.tenor.com/VIIATHVadiYAAAAC/seinfeld-julia-louis-dreyfus.gif","https://media.tenor.com/K5Wc0ZVQ1UwAAAAM/lotto-powerball.gif","https://i.gifer.com/origin/2b/2b8643bf4b9e2f22510c636e27ff1695_w200.gif","https://media.tenor.com/v15HZlxH96EAAAAM/excited-mark-chernesky.gif","https://media.tenor.com/j24-GBykQqkAAAAC/goodbye.gif"]
+
+
+    let po =[
+    {
+        diceNumber: 1,
+        prize: "TV",
+        point: 90,
+        Image:   "https://images.pcel.com/1600/Electronica-Televisores-Samsung-LH43BETMLGKXZX-356544-TiQN9HmoHPFr4adr.jpg" ,
+    },
+    {
+        diceNumber: 2,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:    "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg",
+    },
+    {
+        diceNumber: 3,
+        prize: "free frontend end course",
+        point: 120,
+        Image:   "https://i.ytimg.com/vi/Q8NPQ2RgWyg/maxresdefault.jpg" ,
+    },
+    {
+        diceNumber: 4,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:   "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg" ,
+    },
+    {
+        diceNumber: 5,
+        prize: "pen",
+        point: 30,
+        Image:    "https://www.memorys.in/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/e/pen4_002_1.jpg",
+    },
+    {
+        diceNumber: 6,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:   "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg" ,
+    },
+    {
+        diceNumber: 7,
+        prize: "book",
+        point: 60,
+        Image:   "https://www.designveloper.com/wp-content/uploads/2021/01/Classic-Books-about-JavaScript-Eloquent-JavaScript-1024x808.jpg" ,
+    },
+    {
+        diceNumber: 8,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:   "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg" ,
+    },
+    {
+        diceNumber: 9,
+        prize: "makeup kit",
+        point: 50,
+        Image:   "https://cdn.shopclues.com/images1/thumbnails/109891/640/1/150778024-109891838-1664736911.jpg" ,
+    },
+    {
+        diceNumber: 10,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:   "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg" ,
+    },
+    {
+        diceNumber: 11,
+        prize: "Bmw Car",
+        point: 200,
+        Image:   "https://shoplineimg.com/61dbe650982d7c00241fa234/622f23cbaec87142ef4618d2/800x.jpg" ,
+    },
+    {
+        diceNumber: 12,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:   "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg" ,
+    },
+    {
+        diceNumber: 13,
+        prize: "free movie ticket",
+        point: 700,
+        Image:   "https://templetheater.files.wordpress.com/2015/10/2-movie-tickets.png" ,
+    },
+    {
+        diceNumber: 14,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:   "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg" ,
+    },
+    {
+        diceNumber: 15,
+        prize: "ipad",
+        point: 40,
+        Image:  "https://www.notebookcheck.net/fileadmin/Notebooks/Apple/iPad_Air_2022/DSC0960586.JPG"  ,
+    },
+    {
+        diceNumber: 16,
+        prize: "Better Luck Next Time",
+        point: 0,
+        Image:   "https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901262/31998728-better-luck-next-time-red-rubber-stamp-text-vector-over-a-white-background.jpg" ,
+    },
+    
+]
+    let tp=120
+    let sp =40
+    let ys =0
+
+function prizeMoney(){
+    var x = Math.floor((Math.random() * 16) + 1);
+    let prizeItem = po[x-1]
+    ys++
+    if(tp>=40) {
+        tp=tp-sp+prizeItem.point
+    var box = document.getElementsByClassName("box")
+    box[x-1].style.backgroundColor="gold"
+
+    document.getElementById("gp").innerHTML=`You got ${prizeItem.point} points`
+    document.getElementById("gpi").innerHTML=`You prize is ${prizeItem.prize}`
+    document.getElementById("gpi").style.color= "red"
+    document.getElementById("yp").innerHTML=x
+    document.getElementById("tt").innerHTML=ys
+    document.getElementById("tp").innerHTML=tp
+
+    document.getElementById("prizeImage").setAttribute("src", prizeItem.Image);
+    document.getElementById("prizeGif").setAttribute("src", prizeGif[x-1]);
+    
+    }
+    else {
+        alert("you need more points for continue")
+    }
+}
+</script>
+</html>
